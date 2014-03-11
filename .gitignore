@@ -1,0 +1,14 @@
+logs/*
+target
+target/*
+classes/
+app/*
+project/*.class
+*.DS_Store
+*.releaseBackup
+release.properties
+*.iml
+.idea
+.idea/*
+README.markdown
+.travis.yml
