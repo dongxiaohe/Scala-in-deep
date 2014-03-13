@@ -8,7 +8,7 @@ object CollectSpec {
 
 }
 trait Foo
-case class Bar(baz: String)
-case class Qux(bar: Bar, quux: String) extends Foo
+case class Bar(value: String)
+case class Qux(bar: Bar, value: String) extends Foo
 case class Corge(grault: Int) extends Foo
 
