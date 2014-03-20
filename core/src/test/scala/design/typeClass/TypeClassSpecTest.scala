@@ -1,7 +1,6 @@
 package design.typeClass
 
 import org.scalatest.FunSuite
-
 class TypeClassSpecTest extends FunSuite {
 
   test("type class example") {
