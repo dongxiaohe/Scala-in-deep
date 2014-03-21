@@ -1,6 +1,8 @@
 package design.typeClass
 
 import org.scalatest.FunSuite
+import scala.util.{Failure, Success, Try}
+
 class TypeClassSpecTest extends FunSuite {
 
   test("type class example") {
@@ -12,6 +14,7 @@ class TypeClassSpecTest extends FunSuite {
     TypeClassSpec.process(3) === 3
 
     TypeClassSpec.unaryProcess(3) === "|||"
+
   }
 
 }
