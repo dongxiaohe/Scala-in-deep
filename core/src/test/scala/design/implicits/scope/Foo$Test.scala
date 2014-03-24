@@ -1,4 +1,4 @@
-package design.implicitScope
+package design.implicits.scope
 
 import org.scalatest.FunSuite
 

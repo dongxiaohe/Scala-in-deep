@@ -1,4 +1,4 @@
-package design.implicitScope
+package design.implicits.scope
 
 object Foo {
 
