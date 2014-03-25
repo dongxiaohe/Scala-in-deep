@@ -8,20 +8,16 @@ import Id._
 case class User(name: String, knowScala: Boolean, age: Int)
 
 object PublicValidationSpec extends BasicValidation {
-  import scalaz._
-  import Scalaz._
 
-//  def validate(user: User): Validation[String, String] = {
-//      for {
-//           a <- checkAge(user)
-//           b <- checkKnowScala(user)
-//           c <- checkName(user)
-//      } yield s"Congrats, ${c.name}"
-//    }
+  def validate(user: User): Validation[String, String] = {
+      for {
+           c <- checkName(user)
+      } yield s"Congrats, ${c.name}"
+    }
 
 
    def validateAll(user: User) = {
-     (checkAge(user) |@| checkKnowScala(user) |@| checkName(user)) {
+     (checkAge(user).toValidationNel |@| checkKnowScala(user).toValidationNel |@| checkName(user).toValidationNel) {
        case(_, _, c) => s"Congrats, ${c.name}"
      }
    }

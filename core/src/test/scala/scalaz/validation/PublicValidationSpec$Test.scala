@@ -1,18 +1,15 @@
 package scalaz.validation
 
 import org.scalatest.FunSuite
-import scalaz.validation.User
-import scalaz.Validation
 
 import scalaz._
-import Scalaz._
 
 class PublicValidationSpec$Test extends FunSuite {
 
   test("should accept valid user info") {
-//    val validate: Validation[String, String]
-// = PublicValidationSpec.validate(User("danny", true, 27))
-//
+    val validate: Validation[String, String] = PublicValidationSpec.validate(User("danny", true, 27))
+
+    println(validate)
 //    validate === "Congrats, danny"
   }
 
@@ -23,6 +20,6 @@ class PublicValidationSpec$Test extends FunSuite {
 
   test("should return all errors") {
 
-    println(PublicValidationSpec.validateAll(User("", false, 0)))
+//    println(PublicValidationSpec.validateAll(User("", false, 0)))
   }
 }
