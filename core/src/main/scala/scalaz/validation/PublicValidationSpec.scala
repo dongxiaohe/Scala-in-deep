@@ -2,8 +2,6 @@ package scalaz.validation
 
 import scalaz._
 import Scalaz._
-import std.string._
-import Id._
 
 case class User(name: String, knowScala: Boolean, age: Int)
 
@@ -11,6 +9,8 @@ object PublicValidationSpec extends BasicValidation {
 
   def validate(user: User): Validation[String, String] = {
       for {
+//           a <- checkAge(user)
+//           b <- checkKnowScala(user)
            c <- checkName(user)
       } yield s"Congrats, ${c.name}"
     }

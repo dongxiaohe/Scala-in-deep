@@ -20,6 +20,13 @@ class PublicValidationSpec$Test extends FunSuite {
 
   test("should return all errors") {
 
+//    def subseqs[A](n: Int)(iter: Iterator[A]) = {
+//      val i = iter.toStream
+//      1 to n flatMap i.sliding
+//    }
+//
+//    println((subseqs(3)(List(1,2,3,4).iterator)))
+
 //    println(PublicValidationSpec.validateAll(User("", false, 0)))
   }
 }
