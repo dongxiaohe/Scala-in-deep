@@ -78,4 +78,10 @@ class MapSpec$Test extends FlatSpec with ShouldMatchers with MockitoSugar {
 
   }
 
+  "fibonacci" should "use infinite collection stream" in {
+    def fibs : Stream[Int] = 0 #:: fibs.scanLeft(1)(_ + _)
+
+    assert(fibs(9) === 34)
+  }
+
 }

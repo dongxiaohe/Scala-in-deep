@@ -1,0 +1,7 @@
+package aync
+
+object FutureSpec {
+
+
+
+}

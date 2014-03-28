@@ -1,12 +1,10 @@
 package design.chain
 
-import org.scalatest.{FlatSpec, FunSuite}
-import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.{Matchers, FlatSpec}
 import org.scalatest.mock.MockitoSugar
 import org.mockito.Mockito._
-import org.mockito.InOrder
 
-class ContextTest extends FlatSpec with ShouldMatchers with MockitoSugar {
+class ContextTest extends FlatSpec with Matchers with MockitoSugar {
 
   "Context" should "chain methods together" in {
 
