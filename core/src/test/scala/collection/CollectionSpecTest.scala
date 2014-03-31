@@ -5,7 +5,7 @@ import org.scalatest.mock.MockitoSugar
 import org.mockito.Mockito._
 import scala.collection.SeqView
 
-class MapSpec$Test extends FlatSpec with ShouldMatchers with MockitoSugar {
+class CollectionSpecTest extends FlatSpec with ShouldMatchers with MockitoSugar {
 
   "map" should "map expect a method which begins a parameter lists" in {
     trait Dummy {
@@ -82,6 +82,29 @@ class MapSpec$Test extends FlatSpec with ShouldMatchers with MockitoSugar {
     def fibs : Stream[Int] = 0 #:: fibs.scanLeft(1)(_ + _)
 
     assert(fibs(9) === 34)
+  }
+
+
+  "case object/class " should "be the subclass of product" in {
+    case class Foo(a : Int, b : () => Int, c : String)
+
+    val foo = Foo(3, () => 3, "3")
+    val it = foo.productIterator
+
+    assert(foo.productArity === 3)
+    assert(it.next() === 3)
+    assert(foo.productElement(2) === "3")
+    assert(foo.productPrefix === "Foo")
+
+  }
+
+  "Tuple is product" should "productArity is not same to size" in {
+
+    val tuple = (3, () => 3, "3")
+
+    assert(tuple.productArity === 3)
+    assert(tuple.productIterator.next() === 3)
+    assert(tuple.productElement(2) === "3")
   }
 
 }
