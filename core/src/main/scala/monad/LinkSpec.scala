@@ -1,0 +1,5 @@
+package monad
+
+object LinkSpec {
+
+}
