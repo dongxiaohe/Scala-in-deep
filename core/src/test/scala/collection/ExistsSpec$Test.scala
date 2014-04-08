@@ -16,4 +16,12 @@ class ExistsSpec$Test extends FunSuite {
     assert(ExistsSpec.checkExist(list, "/assets") === false)
   }
 
+  test("askdfjaskld") {
+    def doSomething(x: Int, function: Int => String): String = function(x)
+
+    assert(doSomething(5, (i: Int) => i.toString) == "5")
+    assert(doSomething(7, (i: Int) => (i + 5).toString) == "12")
+
+  }
+
 }

@@ -47,3 +47,8 @@ class Cow extends Animal[Grass]
 class Bear extends Animal[Fish]
 
 new Bear().fish
+
+
+
+
+(1 to Int.MaxValue).view.filter(x => x > 10000).take(3000)
