@@ -48,7 +48,14 @@ class Bear extends Animal[Fish]
 
 new Bear().fish
 
-
-
-
 (1 to Int.MaxValue).view.filter(x => x > 10000).take(3000)
+def run(f: Int => String) = "123"
+run({
+  case 3 => "3"
+})
+
+Map(1->"123", 2 ->"123", 3 -> "123").map(_.swap)
+Map(1->"123", 2 ->"123", 3 -> "123").groupBy(_._2)
+Map(1->"123", 2 ->"123", 3 -> "123").unzip
+List((1, 2, 3), (1, 2, 3), (1, 2, 3)).unzip3
+"hello world".takeWhile(_ != ' ')
