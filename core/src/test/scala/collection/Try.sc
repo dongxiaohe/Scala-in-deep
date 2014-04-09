@@ -59,3 +59,5 @@ Map(1->"123", 2 ->"123", 3 -> "123").groupBy(_._2)
 Map(1->"123", 2 ->"123", 3 -> "123").unzip
 List((1, 2, 3), (1, 2, 3), (1, 2, 3)).unzip3
 "hello world".takeWhile(_ != ' ')
+
+List.tabulate(100)(_ + 1).partition(_ => util.Random.nextBoolean())
