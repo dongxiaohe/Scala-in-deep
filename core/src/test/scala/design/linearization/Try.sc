@@ -1,1 +1,9 @@
-List(1,2,3).zipAll(List(3,4), None, "3")
+trait AC
+
+class B(implicit imp: Int) extends AC { }
+
+object C extends B()(5){}
+
+implicit val imp: Int = 3
+
+class ExtendC extends B

@@ -1,4 +1,4 @@
-package monad
+package design.monad
 
 object LinkSpec {
 
