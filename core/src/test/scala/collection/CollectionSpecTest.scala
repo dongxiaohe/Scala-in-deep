@@ -107,4 +107,15 @@ class CollectionSpecTest extends FlatSpec with ShouldMatchers with MockitoSugar 
     assert(tuple.productElement(2) === "3")
   }
 
+  "flatmap" should "handle collection of collections" in {
+    val a = Map( ("a1", 1), ("a2", 2), ("a3", 3) )
+    val b = Map( ("b1", 1), ("b2", 2), ("b3", 3) )
+    val c = Map( ("c1", 1), ("c2", 2), ("c3", 3) )
+    val misc = Map( ("a1", 1), ("b2", 2), ("c3", 3) )
+
+    val result = List(a, b, c, misc).flatMap(_.keySet).toSet
+
+    println(result)
+  }
+
 }

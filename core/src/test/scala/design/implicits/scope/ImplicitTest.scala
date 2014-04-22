@@ -16,4 +16,17 @@ class ImplicitTest extends FlatSpec {
 
   }
 
+  "implicit argument with manifest" should "enrich class behaviour" in {
+
+    def foo[T](x: List[T])(implicit m: Manifest[T]) = {
+      if (m <:< manifest[String])
+        println("Hey, this list is full of strings")
+      else
+        println("Non-stringy list")
+    }
+
+    foo(List("123"))
+
+  }
+
 }
