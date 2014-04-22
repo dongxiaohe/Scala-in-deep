@@ -29,4 +29,26 @@ class ImplicitTest extends FlatSpec {
 
   }
 
+  "implicit object" should "discouple the client logic" in {
+    case class Address(no: Int, street: String, city: String,
+                       state: String, zip: String)
+
+
+    trait LabelMaker[T] {
+      def toLabel(value: T): String
+    }
+
+    implicit object AddressLabelMaker extends LabelMaker[Address] {
+      def toLabel(address: Address): String = {
+        import address._
+        "%d %s, %s, %s - %s".format(no, street, city, state, zip)
+      }
+    }
+
+    def printLabel[T](t: T)(implicit lm: LabelMaker[T]) = lm.toLabel(t)
+
+    println(printLabel(Address(100, "Monroe Street", "Denver", "CO", "80231")))
+
+  }
+
 }
