@@ -8,6 +8,7 @@ class AnimalTest extends FunSuite {
     class People extends Animal[Fruit]
 
 //    new People().fish
+//    new People().fruit(new Fish())
   }
 
   test("Bear can fish") {

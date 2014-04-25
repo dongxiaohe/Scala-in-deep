@@ -51,4 +51,36 @@ class ImplicitTest extends FlatSpec {
 
   }
 
+
+  "implicit" should "constrain type" in {
+    trait Dummy
+    object c extends Dummy
+    def doStuff[A](x: A)(implicit y: A <:< Dummy) = x
+    def show[A <: Dummy](x: A)= x
+
+    println(doStuff(new Dummy{}))
+    println(show(new Dummy{}))
+  }
+
+  "function" should "can take anything to result" in {
+
+    def doStuff(f: Int => String): String = f(4)
+
+    val result = doStuff(_ => "3")
+
+    println(result)
+  }
+
+  "curried" should "change method to function" in {
+    def add(x: Int, y: Int) = x + y
+
+    val addR: (Int, Int) => Int = _ + _
+
+    val addCurried = (add _).curried
+
+    println(addCurried(3)(4))
+
+    println(addR.curried(3)(4))
+  }
+
 }

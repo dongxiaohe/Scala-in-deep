@@ -3,6 +3,7 @@ package scalaz.validation
 import org.scalatest.FunSuite
 
 import scalaz._
+import Scalaz._
 
 class PublicValidationSpec$Test extends FunSuite {
 
@@ -29,4 +30,39 @@ class PublicValidationSpec$Test extends FunSuite {
 
 //    println(PublicValidationSpec.validateAll(User("", false, 0)))
   }
+
+
+  test("simple scalaz validation") {
+
+    def isThree(x: Int): Validation[NonEmptyList[String], Int] = if (x!= 3){("failed: %d" format x).wrapNel.failure} else {x.success}
+
+    println(isThree(4))
+    println(isThree(3))
+
+    val number = Seq(isThree(13), isThree(15))
+    val result = number.reduceLeft(_ <* _)
+    println(result)
+    println((isThree(6) |@| isThree(7) |@| isThree(13) ) {_ + _ + _})
+
+  }
+
+  test("catch validation") {
+    import scala.util.control.Exception._
+
+    val x: Seq[String] = Seq("123")
+    def get(position: Int): Validation[String, String] = {
+      catching(classOf[IndexOutOfBoundsException]) either {
+        x(position)
+      } match {
+        case Left(e: IndexOutOfBoundsException) => "arg is missing".fail
+        case Right(i) => i.success
+        case _ => "something wrong".fail
+      }
+    }
+
+    val result = (get(3) |@| get(4)) {_ + _}
+
+    println(result)
+  }
+
 }
