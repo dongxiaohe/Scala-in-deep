@@ -5,4 +5,10 @@ type idType[A[_], B] = A[B]
 
 idValue(x => x+ 1, 3)
 
-def idTypeTry: idType =
+import scala.util.continuations._
+
+reset {
+  shift { k: (Int=>Int) =>
+    k(3)
+  } + 1
+}
