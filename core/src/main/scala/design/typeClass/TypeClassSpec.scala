@@ -1,7 +1,7 @@
 package design.typeClass
 
 object TypeClassSpec {
-  def process[C: Show](x : Int) = implicitly[Show[C]].show(x)
+  def process[C: Show](x : C) = implicitly[Show[C]].show(x)
 
   def unaryProcess(x: Int) = {
     implicit val convertShow = new Show[Int] {
@@ -12,5 +12,5 @@ object TypeClassSpec {
 
 }
 trait Show[T] {
-  def show(x : Int)
+  def show(x : T)
 }

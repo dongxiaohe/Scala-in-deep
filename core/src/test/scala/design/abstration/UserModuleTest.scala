@@ -5,17 +5,12 @@ import org.scalatest.FunSuite
 class UserModuleTest extends FunSuite {
 
   test("user module") {
-    val foo = new Foo {
-      override type Bar = C
-    }
-
     val mongoUserModule = new MongoUserModule {
 
     }
 
     val user = mongoUserModule.User("123", "123")
     user.save()
-
 
 //    new UserModule {
 //

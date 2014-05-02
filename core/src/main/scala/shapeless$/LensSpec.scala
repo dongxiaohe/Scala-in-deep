@@ -1,0 +1,5 @@
+package shapeless$
+
+class LensSpec {
+
+}

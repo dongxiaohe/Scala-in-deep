@@ -17,18 +17,3 @@ trait UserModule {
 class A
 class B extends A
 class C extends B
-
-trait Foo {
-
-  type Bar <: B
-
-  trait DoStuff { self: Bar => {
-
-    val name: String = "123"
-  }
-
-  }
-
-}
-
-

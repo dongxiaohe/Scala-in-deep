@@ -7,8 +7,8 @@ class TypeClassSpecTest extends FunSuite {
 
   test("type class example") {
 
-    implicit val directShow = new Show[Int] {
-      override def show (x : Int) = x
+    implicit val intShow = new Show[Int] {
+      override def show(x : Int) = x + 3
     }
 
     TypeClassSpec.process(3) === 3

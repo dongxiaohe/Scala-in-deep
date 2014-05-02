@@ -1,5 +1,0 @@
-package shapeless
-
-class LensSpec {
-
-}
