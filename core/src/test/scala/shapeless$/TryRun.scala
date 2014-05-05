@@ -1,16 +1,12 @@
 package shapeless$
 
-import org.scalatest.FunSuite
-
 import shapeless._
-class LensSpecTest extends FunSuite {
+object TryRun extends App {
 
   case class Address(street : String, city : String, postcode : String)
   case class Person(name : String, age : Int, address : Address)
 
-  test("lens spec") {
 
-    // Some lenses over Person/Address ...
     val nameLens     = lens[Person] >> 'name
     val ageLens      = lens[Person] >> 'age
     val addressLens  = lens[Person] >> 'address
@@ -23,9 +19,8 @@ class LensSpecTest extends FunSuite {
 
     val age1 = ageLens.get(person) // Type inferred is Int
 
-    val person2 = ageLens.set(person)(36)
+    println(age1)
 
     assert(age1 == 34)
-  }
 
 }
