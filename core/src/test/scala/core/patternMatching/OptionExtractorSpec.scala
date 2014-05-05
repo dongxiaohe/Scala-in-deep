@@ -29,7 +29,7 @@ class OptionExtractorSpec extends FunSuite {
     list match {
       case List(a, b, _*) => println("working")
       case List(a, b, c) => println(a + b + c)
-      case _ => 0
+      case _ => println("nothing")
     }
 
 

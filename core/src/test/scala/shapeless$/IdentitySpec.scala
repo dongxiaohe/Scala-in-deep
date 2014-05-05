@@ -7,7 +7,6 @@ class IdentitySpec extends FunSuite {
 
   test("use identity") {
     import shapeless._
-    import syntax.std.tuple._
 
     val list = List((1, "a"), Tuple1('c'))
 

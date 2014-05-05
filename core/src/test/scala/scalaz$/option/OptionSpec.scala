@@ -19,6 +19,7 @@ class OptionSpec extends FunSuite {
     import shapeless._
     import Nat._
     import HList._
+    import shapeless.ops.nat.{ToInt, Prod}
 
     def typed[T](t : => T) {}
 
