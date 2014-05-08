@@ -15,3 +15,11 @@ libraryDependencies ++= Seq(
 )
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings
+
+lazy val simpleWelcome = taskKey[Unit]("print out the welcome message")
+
+fullRunTask(simpleWelcome, Compile, "build.SimplePrintTask")
+
+//lazy val generate = taskKey[Unit]("Generate my file")
+//
+//generate := (runMain in Compile).toTask(" my.App").value
