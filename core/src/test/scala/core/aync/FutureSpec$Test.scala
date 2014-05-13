@@ -52,5 +52,26 @@ class FutureSpec$Test extends FlatSpec {
       println(result2.value)
   }
 
+  "future" should "success biased" in {
+
+    import scala.concurrent.ExecutionContext.Implicits.global
+    val firstError = Future{"abc".toInt}
+    val secondError = Future{null.getClass; 3}
+
+    Thread.sleep(3000)
+
+    firstError.flatMap(_ => secondError).onComplete {
+      case Failure(ex) => println(ex)
+      case a => "success"
+    }
+
+    val firstSuccess = Future{"123".toInt}
+    val secondSuccess = Future{3}
+
+    firstSuccess.flatMap(_ => secondSuccess).onComplete {
+      case Failure(ex) => ex.getMessage
+      case a => println("success")
+    }
+  }
 
 }
