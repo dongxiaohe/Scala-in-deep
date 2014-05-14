@@ -26,7 +26,7 @@ class BasicSpec extends FunSuite {
 
     val result = List(1,2,3).map(Iterator(_))
 
-    println(result)
+//    println(result)
   }
 
   test("handle particular exception") {
@@ -61,8 +61,8 @@ class BasicSpec extends FunSuite {
     val suspiciousResources = checkedBlacklist.flatMap(_.left.toOption)
     val problemCitizens = checkedBlacklist.flatMap(_.right.toOption).flatten.toSet
 
-    println(suspiciousResources)
-    println(problemCitizens)
+//    println(suspiciousResources)
+//    println(problemCitizens)
   }
 
 }

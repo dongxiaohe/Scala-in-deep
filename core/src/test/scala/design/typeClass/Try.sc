@@ -57,6 +57,14 @@ def doStuff(x: Int): Int => String = x => x.toString
 
 doStuff(3)
 
+def timed[A](block: => A) = {
+  val t0 = System.currentTimeMillis
+  val result = block
+  println("took " + (System.currentTimeMillis - t0) + "ms")
+  result
+}
+
+Array.fill(100)(3).head
 
 
 
