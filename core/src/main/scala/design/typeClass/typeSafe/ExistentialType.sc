@@ -1,29 +1,19 @@
-//trait Foo[T] {
-//  def one: Foo[_ >: T]
-//  def two: T
-//  def three(x: T)
-//}
-//
-//def test[T, X <: T](f: Foo[T]) = {
-//  val b = f.one
-//  b.three(b.two)
-//}
-
 class A
-
-class B
 
 class C extends A
 
-class Cat[_ <: A] {
+class Container[T] {
+
+  def take(x: T) = {
+
+  }
+
+}
+def doStuff[T <: A](container: Container[T]): Unit = {
 
 }
 
-new Cat[C]
+doStuff(new Container[A])
+doStuff(new Container[C])
 
-val list = List(123, 0, 123)
-
-list span ( _ > 1)
-
-def strangeMethod[A](value: => A): A = value;
-
+List(1,2,3).map
