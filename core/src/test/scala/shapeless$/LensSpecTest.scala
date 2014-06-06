@@ -28,4 +28,17 @@ class LensSpecTest extends FunSuite {
     assert(age1 == 34)
   }
 
+
+  test("a bug") {
+
+//    case class A(map: Map[String, String])
+//    case class B(a: A)
+//
+//    val mapLens = lens[B] >> 'a >> 'map
+//
+//    val b = B(A(Map("123" -> "3")))
+
+    //      mapLens.set(b)(b.a.map + ("foo" -> "bar"))
+
+  }
 }

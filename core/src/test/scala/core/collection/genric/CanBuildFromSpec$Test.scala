@@ -13,6 +13,8 @@ class CanBuildFromSpec$Test extends FunSuite {
 
     assert(CanBuildFromSpec.combineValues[String, Set](seq) === Seq(("1", Set("3")), ("3", Set("123"))))
 
+    println(CanBuildFromSpec.transform[Seq](Array("123", "3")))
+
   }
 
 }

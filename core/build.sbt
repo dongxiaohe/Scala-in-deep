@@ -11,8 +11,7 @@ libraryDependencies ++= Seq(
   "com.chuusai" % "shapeless_2.10.4" % "2.0.0",
   "com.typesafe.akka" % "akka-actor_2.10" % "2.3.0",
   "org.specs2" % "specs2_2.10" % "2.3.11-scalaz-7.1.0-M6",
-  "org.mockito" % "mockito-all" % "1.9.5",
-  "org.scala-lang" % "scala-swing" % "2.11.0-M7"
+  "org.mockito" % "mockito-all" % "1.9.5"
 )
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings
