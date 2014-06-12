@@ -5,7 +5,7 @@ import scalaz._
 import Scalaz._
 
 
-class ApplicativeFuncteoSpec extends FunSuite  {
+class ApplicativeFunctorSpec extends FunSuite  {
 
 
   test("applicative functor") {
