@@ -102,6 +102,39 @@ class ImplicitTest extends FlatSpec {
     }
 
     new Dummy().doStuff(new Fruit)
+
+
+
+    class Foo(value: Int) {
+      def getValue() = value
+    }
+
+    class NumberOrdering extends Ordering[Foo] {
+      override def compare(a: Foo, b: Foo) = a.getValue() compare b.getValue()
+    }
+
+    implicit val ordering: Ordering[Foo] = new NumberOrdering
+
+    class Operation[T] {
+
+      def max(a: Int, b: Int): Int = implicitly[Ordering[Int]].max(a, b)
+
+    }
+
+    val intOperation = new Operation[Int]
+
+    val valueObjectOperation = new Operation[Foo]
+
+    intOperation.max(1, 3) // print out 3
+
+//    valueObjectOperation.max(new Foo(1), new Foo(3)).getValue() // print out 3
+
+
+
+
+
+
+
   }
 
 }

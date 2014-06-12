@@ -32,4 +32,12 @@ object CanBuildFromSpec {
     result.map { case (k, v) ⇒ k → v.result }.toList
   }
 
+  def transform[U[_]](col: Array[String])(implicit cbf: CanBuildFrom[Array[String], String, U[String]]): U[String] = {
+    val builder = cbf()
+
+    for (ele <- col) builder += ele
+
+    builder.result()
+  }
+
 }

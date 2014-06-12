@@ -15,19 +15,19 @@ doStuff("123")
 
 doStuff _
 
-class A(value: Int) {
+class Foo(value: Int) {
   def getValue() = value
 }
 
-class AgeOrdering extends Ordering[A] {
-  override def compare(a:A, b:A) = a.getValue() compare b.getValue()
+class NumberOrdering extends Ordering[Foo] {
+  override def compare(a: Foo, b: Foo) = a.getValue() compare b.getValue()
 }
 
-implicit val ordering: Ordering[A] = new AgeOrdering
+implicit val ordering: Ordering[Foo] = new NumberOrdering
 
-def max(a: A, b: A): A = implicitly[Ordering[A]].max(a, b)
+def max(a: Foo, b: Foo): Foo = implicitly[Ordering[Foo]].max(a, b)
 
-max(new A(1), new A(123)).getValue()
+max(new Foo(1), new Foo(123)).getValue()
 
 trait Food
 

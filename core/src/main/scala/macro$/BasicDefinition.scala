@@ -1,0 +1,6 @@
+package macro$
+
+class BasicDefinition {
+
+
+}

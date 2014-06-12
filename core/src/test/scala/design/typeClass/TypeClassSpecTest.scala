@@ -17,4 +17,28 @@ class TypeClassSpecTest extends FunSuite {
 
   }
 
+  test("constraint") {
+    trait Common
+
+    case object HouseWork extends Common
+    case object Food extends Common
+
+    class Animal[T <: Common] {
+
+      def doHouseWork(implicit x: T <:< HouseWork.type): Unit = {
+        println("do house work")
+      }
+
+    }
+
+    val people = new Animal[HouseWork.type]
+    val dog = new Animal[Food.type]
+
+    people.doHouseWork
+
+//    dog.doHouseWork
+
+
+  }
+
 }
