@@ -146,6 +146,28 @@ class HListSpec extends FunSuite {
 
   }
 
+  test("zipper") {
+    import syntax.zipper._
+    import poly._
+    import syntax.std.tuple._
+
+    val result = (23, ("foo", true), 2.0).toZipper.right.down.put("bar").root.reify
+
+    println(result)
+
+    val l = 1 :: "foo" :: 3.0 :: HNil
+
+    println(l.toZipper.right.put(("wibble", 45)).reify)
+    println(l.toZipper.right.delete.reify)
+    println(l.toZipper.last.left.insert("bar").reify)
+
+    case class Foo(foo:String, bar:Int)
+
+    println(Foo.unapply(Foo("test", 123)))
+
+    println(Foo.tupled("123", 3))
+
+  }
 
 
 

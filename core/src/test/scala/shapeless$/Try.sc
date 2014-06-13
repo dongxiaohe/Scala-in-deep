@@ -37,3 +37,25 @@ val orignal = List(1, 2, 3, 4, 5, 6)
 val result = List(4, 5, 6)
 
 orignal.diff(result)
+
+class Command
+
+trait A {
+  println("A....")
+}
+
+trait B {
+  println("B.....")
+}
+
+trait C {
+  println("C.....")
+}
+
+new A with B with C
+val map1 = Map(1 -> 3 , 2 -> 30)
+val map2 = Map(1 -> 100, 3 -> 300)
+map1 + (6 -> 3)
+(map1 /: map2) ( {
+  case (map, (k, v)) => map + (k -> (v + map.getOrElse(k, 0)))
+})

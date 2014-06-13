@@ -2,6 +2,7 @@ package shapeless$
 
 import org.scalatest.FunSuite
 import shapeless._
+import poly._
 import HList._
 //import shapeless.syntax.singleton
 
@@ -24,6 +25,10 @@ class PolySpec extends FunSuite {
     println(size((23, "foo")))
 
     println(size(((23, "foo"), 13)))
+
+    println(size(((3333, "foo3"), 13)))
+
+    println(size(((3333, "foo3"), (123, 123))))
 
     println((23 :: "foo" :: false :: HNil).head)
 
@@ -53,7 +58,27 @@ class PolySpec extends FunSuite {
     max(new Foo(1), new Foo(123)).getValue
     max(1, 3)
 
+  }
+
+  test("subtype polymorphism") {
+//    object iterateOverHList extends (List ~> Iterator) {
+//      def apply[T](it: List[T]) = it.iterator
+//    }
+//
+//    val x = List(1,2,3) :: List("cat","dog") :: HNil
+//
+//    println(x map iterateOverHList)
+
+    object iterateOverHList extends Poly1 {
+      implicit def iterable[T, L[T] <: Iterable[T]] = at[L[T]](_.iterator)
+    }
+
+    val x = List(1,2,3) :: List("cat","dog") :: HNil
+
+    println(x map iterateOverHList)
+
 
   }
+
 
 }
