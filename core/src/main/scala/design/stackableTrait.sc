@@ -25,6 +25,12 @@ trait Add30 extends Foo {
 
 }
 
+trait NoChange extends Foo {
+
+  abstract override def get(x: Int): Int = 3
+
+}
+
 class Queue extends Simple with Add15 with Add30
 
 new Queue get 0
