@@ -127,6 +127,8 @@ class ImplicitTest extends FlatSpec {
 
     intOperation.max(1, 3) // print out 3
 
+    val Content = "<select(.*)multiple-select(.*)>".r
+
 //    valueObjectOperation.max(new Foo(1), new Foo(3)).getValue() // print out 3
 
 
