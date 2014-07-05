@@ -1,5 +1,8 @@
 import sbt._
 import Keys._
+import sbt.file
+import sbt.IO
+import sbt.Using._
 
 //object BuildSettings {
 //  val buildSettings = Defaults.defaultSettings ++ Seq (
@@ -30,4 +33,10 @@ object Build extends Build {
 //   ))
 
    def greeting() : Unit =  println("hello scala")
+
+//   val result = gzipOutputStream
+//
+//   val foo = gzipOutputStream(null) { gzStream => null }
+
+
 }

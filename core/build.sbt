@@ -11,7 +11,8 @@ libraryDependencies ++= Seq(
   "com.chuusai" % "shapeless_2.10.4" % "2.0.0",
   "com.typesafe.akka" % "akka-actor_2.10" % "2.3.0",
   "org.specs2" % "specs2_2.10" % "2.3.11-scalaz-7.1.0-M6",
-  "org.mockito" % "mockito-all" % "1.9.5"
+  "org.mockito" % "mockito-all" % "1.9.5",
+  "org.scala-sbt" % "io" % "0.13.2"
 )
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings
@@ -23,3 +24,5 @@ fullRunTask(simpleWelcome, Compile, "build.SimplePrintTask")
 //lazy val generate = taskKey[Unit]("Generate my file")
 //
 //generate := (runMain in Compile).toTask(" my.App").value
+
+resolvers += Resolver.url("typesafe-ivy-repo", url("http://typesafe.artifactoryonline.com/typesafe/releases"))(Resolver.ivyStylePatterns)
