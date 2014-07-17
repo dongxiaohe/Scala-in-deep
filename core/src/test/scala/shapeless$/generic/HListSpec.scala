@@ -46,9 +46,29 @@ class HListSpec extends FunSuite {
 //    assertEquals("Joe Soap" :: "Brighton" :: 23 :: HNil, p0)
 
 
+  }
 
+  test("HList zipapply") {
+    def intToString(x: Int) = x + "   "
+    def intToDouble(x: Int) = x * 10d
+    val fns = intToString _ :: intToDouble _ :: HNil
 
+    val res = fns.zipApply(3 :: 4 ::HNil)
 
+    println(res)
+
+    object apply extends Poly1 {
+      implicit def default[I, O]: Case.Aux[(I => O, I), O] =
+        at[(I => O, I)] { case (f, x) => f(x) }
+    }
+
+    val result = fns.zip(3 :: 4 :: HNil).map(apply)
+
+    println(result)
+
+//    val list = List(x: Int => x+3)
+
+//    List(1,2,3).zip
   }
 
 }

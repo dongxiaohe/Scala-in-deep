@@ -13,7 +13,8 @@ libraryDependencies ++= Seq(
   "org.specs2" % "specs2_2.10" % "2.3.11-scalaz-7.1.0-M6",
   "org.mockito" % "mockito-all" % "1.9.5",
   "org.scala-sbt" % "io" % "0.13.2",
-  "org.scala-lang.plugins" % "continuations" % "2.10.3"
+  "org.scala-lang.plugins" % "continuations" % "2.10.3",
+  "org.openimaj" % "image-processing" % "1.2.1"
 )
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings
@@ -27,6 +28,11 @@ fullRunTask(simpleWelcome, Compile, "build.SimplePrintTask")
 //generate := (runMain in Compile).toTask(" my.App").value
 
 resolvers += Resolver.url("typesafe-ivy-repo", url("http://typesafe.artifactoryonline.com/typesafe/releases"))(Resolver.ivyStylePatterns)
+
+resolvers += "OpenIMAJ maven releases repository" at "http://maven.openimaj.org"
+
+resolvers += "OpenIMAJ maven snapshots repository" at "http://snapshots.openimaj.org"
+
 //generate := (runMain in Compile).toTask(" my.App").value
 
 autoCompilerPlugins := true
