@@ -47,8 +47,6 @@ class Cow extends Animal[Grass]
 class Bear extends Animal[Fish]
 
 new Bear().fish
-
-
 (1 to Int.MaxValue).view.filter(x => x > 10000).take(3000)
 def run(f: Int => String) = "123"
 run({
@@ -60,5 +58,16 @@ Map(1->"123", 2 ->"123", 3 -> "123").groupBy(_._2)
 Map(1->"123", 2 ->"123", 3 -> "123").unzip
 List((1, 2, 3), (1, 2, 3), (1, 2, 3)).unzip3
 "hello world".takeWhile(_ != ' ')
-
 List.tabulate(100)(_ + 1).partition(_ => util.Random.nextBoolean())
+val f: Int => Int = (a: Int) =>
+  if (a > 10) 3 else f(a + 1) + 1
+
+trait Basic {
+  type T
+}
+
+trait Person extends Basic {
+  override type T = Int
+
+  type FUNC = (Int => Int) => (String => String)
+}
