@@ -29,3 +29,14 @@ def add: String => Int = {
 }
 val result = func compose add
 result("3")
+class Test[+A] {
+  def test[B >: A](b: B)(implicit ev: B =:= C): B = b
+}
+
+class C
+
+class ExtendC extends C
+
+val test = new Test[ExtendC]
+
+test.test(new C)
