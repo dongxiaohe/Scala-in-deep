@@ -1,9 +1,23 @@
-trait AC
+import shapeless.=:!=
 
-class B(implicit imp: Int) extends AC { }
+//trait AC
+//
+//class B(implicit imp: Int) extends AC { }
+//
+//object C extends B()(5){}
+//
+//implicit val imp: Int = 3
+//
+//class ExtendC extends B
 
-object C extends B()(5){}
+trait Foo {
+  protected val fish: String
+}
 
-implicit val imp: Int = 3
+trait Bar extends Foo {
+  override protected val fish = "catfish"
+}
 
-class ExtendC extends B
+def doStuff[T <: Foo](x: T)(implicit ev: T =:= Foo) = x
+
+doStuff(new Bar{})
