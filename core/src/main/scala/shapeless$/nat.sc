@@ -5,7 +5,8 @@ def myFunction[N <: Nat, R <: Nat](n: N)
 
 myFunction(_3)
 
+@annotation.implicitNotFound(msg = "No Props instance for ${T}")
 def typeSafeSum[T <: Nat, W <: Nat, R <: Nat](x: T, y: W)
-         (implicit sum: Sum.Aux[T, W, R], error: R =:!= _13) = x
+         (implicit sum: Sum.Aux[T, W, R], error: R =:!= _7) = x
 
 typeSafeSum(_3, _4)
