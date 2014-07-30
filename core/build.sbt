@@ -14,7 +14,8 @@ libraryDependencies ++= Seq(
   "org.mockito" % "mockito-all" % "1.9.5",
   "org.scala-sbt" % "io" % "0.13.2",
   "org.scala-lang.plugins" % "continuations" % "2.10.3",
-  "org.openimaj" % "image-processing" % "1.2.1"
+  "org.openimaj" % "image-processing" % "1.2.1",
+  "com.netflix.rxjava" % "rxjava-scala" % "0.20.0-RC3"
 )
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings

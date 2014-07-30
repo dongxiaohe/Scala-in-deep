@@ -31,4 +31,3 @@ object FuncRes {
 def execute[T](f: FuncRes[T]) = f.resolve
 
 execute(foobar _)(1, 2, 3)
-
