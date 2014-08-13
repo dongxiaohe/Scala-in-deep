@@ -15,7 +15,10 @@ libraryDependencies ++= Seq(
   "org.scala-sbt" % "io" % "0.13.2",
   "org.scala-lang.plugins" % "continuations" % "2.10.3",
   "org.openimaj" % "image-processing" % "1.2.1",
-  "com.netflix.rxjava" % "rxjava-scala" % "0.20.0-RC3"
+  "com.netflix.rxjava" % "rxjava-scala" % "0.20.0-RC3",
+  "org.openimaj" % "image-processing" % "1.2.1",
+  "org.json4s" % "json4s-native_2.10" % "3.2.10",
+  "org.json4s" % "json4s-jackson_2.10" % "3.2.10"
 )
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings

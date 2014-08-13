@@ -13,3 +13,13 @@ println(5.total)
 println(new A(5).total)
 println(new B(5, 5).total)
 println(new C(5, 5, 5).total)
+import scalaz.Scalaz._
+val names = Map("Sidney" -> 1 , "Paul" -> 1 , "Jacob" -> 7)
+val moreNames = Map("Sidney" -> 1 , "Paul" -> 5 , "Nick" -> 3)
+names ++ moreNames.map(t => t._1 -> (t._2 + names.getOrElse(t._1, 0)))
+(names.toSeq ++ moreNames.toSeq).groupBy(_._1).mapValues(t => t.map(_._2).toList)
+//magic scalaz
+val test = List(names , moreNames).reduce(_ |+| _)
+val listTest = names.map(t => t._1 -> List(t._2)) |+| moreNames.map(t => t._1 -> List(t._2))
+
+
