@@ -1,5 +1,6 @@
 package core.function
 
+import org.mockito.ArgumentCaptor
 import org.scalatest.FunSuite
 
 class FunctionSpecTest extends FunSuite {
@@ -21,6 +22,45 @@ class FunctionSpecTest extends FunSuite {
     val curried = (showIntAndString _).curried
 
     println(curried(123)("123"))
+
+  }
+
+
+  test("default function") {
+
+    class Query {
+      def getNumber = 3
+    }
+
+    class Service {
+
+      def doStuff(x: Query) = {
+        println(123)
+      }
+
+    }
+
+
+    import org.mockito.Mock._
+    import org.mockito.Mockito.when
+    import org.mockito.Mockito.mock
+    import org.mockito.Mockito.doNothing
+    def doSomethingGreat[T](x: => Any = {}, captor: ArgumentCaptor[T]) {
+
+
+
+
+        doNothing().when(mock(classOf[Service])).doStuff(captor.capture().asInstanceOf[Query])
+
+      val value = captor.getValue
+
+      println(value)
+
+    }
+    val captor = ArgumentCaptor.forClass(classOf[Query])
+
+    doSomethingGreat(captor = captor)
+    new Service().doStuff(new Query)
 
   }
 
