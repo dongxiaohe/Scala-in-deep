@@ -1,26 +1,34 @@
 package play$
 
 import org.scalatest.FunSuite
-//import play.api.libs.iteratee.{Iteratee, Enumerator}
-//import play.api.libs.concurrent.Execution.Implicits._
+import play.api.libs.iteratee._
+import scala.concurrent._
+import ExecutionContext.Implicits.global
+import scala.concurrent.duration._
+import scala.util._
 
 
 class IterateeTest extends FunSuite {
 
   test("get iteratee") {
 
-//    val iterator: Iteratee[Int, Int] = Iteratee.fold(0){ (total, elt) => total + elt }
-//
-//    val e1 = Enumerator(1, 234, 455, 987)
-//    val e2 = Enumerator(345, 123, 476, 187687)
-//
-//    // we apply the iterator on the enumerator
-//    e1(iterator)      // or e1.apply(iterator)
-//    e2(iterator)
-//
-//    // we run the iterator over the enumerator to get a result
-//    val result1 = e1.run(iterator) // or e1 run iterator
-//    val result2 = e2.run(iterator)
+    val iter = Iteratee.fold(0){(total,elt:Int) => total + elt }  //Iteratee是Enumerator的迭代处理机
+    val e1 = Enumerator(1, 234, 455, 987)                       //Enumerator为Iteratee准备原料
+    val e2 = Enumerator(345, 123, 479, 187687)
+    val conbind = e1.andThen(e2)                                   //将2个Enumerator合并
+    conbind(Iteratee.foreach(println _))                              //1234455987345123479187687
+    e1(iter)                                                                        //将e1送入迭代机
+    val r1= e1.run(iter)                                                      //启动迭代机并工作
+    val r2= e2.run(iter)
+
+
+    val r3:Future[Int] = e1 run iter                                //total是一个Future占位值，
+    r3 onComplete {                                                     //异步完成total计算
+      case Success (t) => println("123")
+      case Failure (t) => println("err")
+    }
+
+//    Thread.sleep(3000)
 
   }
 
