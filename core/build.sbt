@@ -18,7 +18,10 @@ libraryDependencies ++= Seq(
   "com.netflix.rxjava" % "rxjava-scala" % "0.20.0-RC3",
   "com.typesafe.play" % "play-iteratees_2.10" % "2.3.0",
   "com.typesafe.akka" % "akka-actor_2.10" % "2.3.5",
-  "com.typesafe.akka" % "akka-stream-experimental_2.10" % "0.5"
+  "com.typesafe.akka" % "akka-stream-experimental_2.10" % "0.5",
+  "org.openimaj" % "image-processing" % "1.2.1",
+  "org.json4s" % "json4s-native_2.10" % "3.2.10",
+  "org.json4s" % "json4s-jackson_2.10" % "3.2.10"
 )
 
 net.virtualvoid.sbt.graph.Plugin.graphSettings
