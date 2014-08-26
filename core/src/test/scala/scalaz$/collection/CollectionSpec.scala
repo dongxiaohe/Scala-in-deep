@@ -41,10 +41,6 @@ class CollectionSpec extends FunSuite {
     val result = List(list1, list2, list3).reduceLeft(_ |+| _)
 
 
-    println(result)
-
-
-
     case class Test(dayOfWeek:Int,b:Int=Random.nextInt)
     val data=(3 to 36).map(_ % 7).map(Test(_))
     val (firstWeek, nextWeeks) = data.span(_.dayOfWeek != 0)
