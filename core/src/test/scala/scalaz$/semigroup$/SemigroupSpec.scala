@@ -16,9 +16,9 @@ class SemigroupSpec extends FunSuite {
     val result3 = List(Staff("Andrew", 30))
     val result4: List[Staff] = List()
 
-    implicit val staffListSemigroup: Semigroup[List[Staff]] = new Semigroup[List[Staff]] {
+    implicit val staffListSemigroup: Monoid[List[Staff]] = new Monoid[List[Staff]] {
 
-//      override def zero: List[Staff] = Nil
+      override def zero: List[Staff] = Nil
 
       override def append(f1: List[Staff], f2: => List[Staff]): List[Staff] = {
 
