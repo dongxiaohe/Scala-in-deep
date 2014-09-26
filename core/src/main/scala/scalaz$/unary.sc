@@ -49,3 +49,14 @@ reader(3)
 
 class Foo(x: String)
 object Foo extends Foo("3")
+
+type IntTuple[+A]=(Int, A)
+Functor[IntTuple].map((1, 2))(a => a + 1) // (1, 3)
+
+//Functor[[a]=(Int, a)].map((1, 2))(a => a + 1)
+
+sealed trait Maybe[-A]
+case object Empty extends Maybe[Nothing]
+case class Just[A](x: A) extends Maybe[A]
+val j: Maybe[String] = Just[AnyRef]("Hello")
+//val j: Just[AnyRef] = Just[String]("Hello")
