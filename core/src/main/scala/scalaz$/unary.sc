@@ -60,3 +60,5 @@ case object Empty extends Maybe[Nothing]
 case class Just[A](x: A) extends Maybe[A]
 val j: Maybe[String] = Just[AnyRef]("Hello")
 //val j: Just[AnyRef] = Just[String]("Hello")
+
+
