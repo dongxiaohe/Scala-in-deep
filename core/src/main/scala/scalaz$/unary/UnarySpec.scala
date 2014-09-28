@@ -1,4 +1,6 @@
 package scalaz$.unary
+import scala.concurrent.Future
+import scala.concurrent.ExecutionContext.Implicits.global
 
 object UnarySpec {
 
@@ -10,6 +12,17 @@ object UnarySpec {
     val result = ~a + ~b + ~c + ~d
 
     println(result)
+
+
+
+    val futures = for (t <- 1 to 4) yield Future { Thread.sleep(3000);t }
+    val resultFuture = Future.firstCompletedOf(futures)
+
+    resultFuture.onComplete(t => println(t.get))
+
+    println(123)
+
+    Thread.sleep(3000)
   }
 
 }

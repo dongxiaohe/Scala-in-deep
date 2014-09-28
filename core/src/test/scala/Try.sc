@@ -62,20 +62,16 @@ implicit def addMethod(x: CCC) = new {
 new CCC doStuff
 
 
+
 List.tabulate(3)(_ + 1).map(a => (a, a.toString))
-
 List.tabulate(3)(_ + 1).map(_.toString)(breakOut)
-
 val foo : Map[Int,String] = List.tabulate(3)(_ + 1).map(a => (a, a.toString))(breakOut)
 
+case object Whatever {
+  def doStuff: String = ""
+}
 
+val option: Option[Whatever.type ] = None
 
-
-
-
-
-
-
-
-
+option.map(_.doStuff).get
 

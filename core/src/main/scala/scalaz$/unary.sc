@@ -1,4 +1,4 @@
-//import scalaz._ ; import Scalaz._
+import scalaz._ ; import Scalaz._
 //
 //val List(a,b,c,d) = List(Some("str1"), Some("str2"),None,Some("str3"))
 
