@@ -28,3 +28,10 @@ for {
 "event 2 failed!".left[String]| "something good"
 ~"event 2 failed!".left[String]
 ~"event 2 failed!".left[String]| "something good"
+
+
+for {
+  e1 <- "a".right
+  e2 <- "b".right[String]
+  e3 <- "c".right[String]
+} yield e1 |+| e2 |+| e3
