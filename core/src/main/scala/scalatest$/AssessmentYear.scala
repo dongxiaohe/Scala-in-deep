@@ -2,15 +2,11 @@ package scalatest$
 
 
 case class AssessmentYear(certificateType: CertificateType, year: Int) {
-
-  private val stcStartYear = 2011
-  private val lgcStartYear = 2001
-
   def getYearRange: Seq[Int] = certificateType match {
-    case LGC => lgcStartYear to year
-    case STC => stcStartYear to year
-  }
+    case STC => 2011 to year
+    case LGC => 2001 to year
 
+  }
 }
 
 

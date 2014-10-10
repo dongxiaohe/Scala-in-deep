@@ -2,7 +2,7 @@ package design.implicits$.bugs
 
 import org.scalatest.FunSuite
 
-class FooTest extends FunSuite {
+class DefaultRankBusinessTest extends FunSuite {
   trait Bar {
     def doSomething : String
     override def toString = "Foo(" + ").Bar -> " + doSomething
