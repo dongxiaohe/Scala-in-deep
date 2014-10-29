@@ -19,7 +19,7 @@ result.swap.orElse(3.right[String])
 for {
   e1 <- "a".right
   e2 <- "b".right[String]
-  e3 <- "c".left[String]
+  e3 <- ~"c".left[String]
 } yield e1 |+| e2 |+| e3
 "event 2 failed!".left[String]
 "event 2 failed!".left[String]| "something good"
