@@ -29,10 +29,25 @@ class KleisliSpec extends FunSuite {
 
     def sum(x: Int) = x + 1
 
+    println(List(1,2,3).traverseU(sum))
+
     List(1,2,3).traverseU(print)
 //    List(1,2,3).traverseM(print)
 
     println(30.0 ?|? 3.0)
+  }
+
+  test("whatever") {
+//    def str(x: Int): Option[String] = Some(x.toString)
+//    def toInt(x: String): List[Int] = List(x.toInt)
+//    def double(x: Int): Option[Double] = Some(x * 3)
+//
+//    val result = Kleisli(str _) >=> Kleisli(toInt _) >=> Kleisli(double _)
+//
+//    println(result(3))
+
+     println(List(12,14,16,18,20,22,28,30).sliding(2).toList)
+
   }
 
 }
